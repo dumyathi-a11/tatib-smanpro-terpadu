@@ -1,0 +1,24 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tatib Terpadu SMAN 1 Pronojiwo</title>
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0b2a5b">
+<link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tatib SMANPRO"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>html,body{margin:0;height:100%;background:#0b2a5b;font-family:system-ui,sans-serif;color:#fff}
+#l{position:fixed;inset:0;z-index:5;background:#0b2a5b;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:20px}
+#l img{width:110px;border-radius:22px}#l small{opacity:.8}#l a{color:#f5b301;display:none}
+iframe{position:fixed;left:0;right:0;bottom:0;top:env(safe-area-inset-top,0px);width:100%;height:calc(100% - env(safe-area-inset-top,0px));border:0;background:#f3f6fb}
+#pasang{position:fixed;left:12px;bottom:12px;z-index:10;display:none;background:#f5b301;color:#222;border:0;border-radius:99px;padding:10px 16px;font-weight:700;box-shadow:0 4px 14px #0006}</style></head><body>
+<div id="l"><img src="icon-192.png" alt="Logo"><b>Tatib Terpadu SMAN 1 Pronojiwo</b><small>Shalat dan Upacara · Tatib · Kehadiran Siswa dan Guru</small><span>Memuat aplikasi…</span><a id="o" href="https://script.google.com/macros/s/AKfycbxLPhHuhxhkOm-7UAlIBFa6fIO6O9OgXNRwXbQmqhEjJsqNewzswYmcIEv31Jir5W9xyg/exec">Belum tampil? Buka langsung</a></div>
+<iframe id="f" src="https://script.google.com/macros/s/AKfycbxLPhHuhxhkOm-7UAlIBFa6fIO6O9OgXNRwXbQmqhEjJsqNewzswYmcIEv31Jir5W9xyg/exec" allow="clipboard-write; fullscreen" title="Tatib Terpadu"></iframe>
+<button id="pasang">📲 Pasang di layar utama</button>
+<script>
+const $=i=>document.getElementById(i);let ev=null;
+$('f').addEventListener('load',()=>setTimeout(()=>$('l').style.display='none',400));
+setTimeout(()=>{$('o').style.display='block'},12000);
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();ev=e;if(!matchMedia('(display-mode: standalone)').matches)$('pasang').style.display='block'});
+$('pasang').onclick=async()=>{if(!ev)return;ev.prompt();await ev.userChoice;ev=null;$('pasang').style.display='none'};
+window.addEventListener('appinstalled',()=>$('pasang').style.display='none');
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script></body></html>
